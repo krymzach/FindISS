@@ -51,10 +51,10 @@
 
         loader.load(
             './assets/Earth_1_12756.glb',
-            (object) => {
+            function (object) {
                 object.scale.set(.009, .009, .009);
                 scene.add(object);
-            },
+            }
         )
 
         loader.load(
