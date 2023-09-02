@@ -55,7 +55,7 @@
         fbxLoader.load(
             './assets/Earth_2K.fbx',
             (object) => {
-                object.traverse( child => {
+                object.traverse(child => {
                     if (child.isMesh){
                         child.material = material1;
                         child.material = material2;
@@ -76,10 +76,19 @@
 
         const geometry = new THREE.BoxGeometry(10, 10, 10);
         const skyBoxTextureLoader = new THREE.TextureLoader();
-        const skyBoxTexture = skyBoxTextureLoader.load('./assets/skybox-texture-map.png')
         const skyBoxMaterial = new THREE.MeshPhongMaterial({ map: skyBoxTexture });
         const cube = new THREE.Mesh(geometry, skyBoxMaterial);
-        scene.add(cube);
+        const skyBoxTexture = skyBoxTextureLoader.load(
+            './assets/skybox-texture-map.png',
+            (object) => {
+                object.traverse(child => {
+                    if (child.isMesh){
+                        child.material = skyBoxMaterial;
+                    }
+                })
+                scene.add(cube);
+            }
+        )
 
         camera.position.z = 5;
 
