@@ -27,8 +27,8 @@
 
         const scene = new THREE.Scene();
 
-        const cubeTextureLoader = new THREE.CubeTextureLoader();
-        const skyBoxTexture = cubeTextureLoader.load('./assets/skybox-texture-map.png')
+        const skyBoxTextureLoader = new THREE.TextureLoader();
+        const skyBoxTexture = skyBoxTextureLoader.load('./assets/skybox-texture-map.png')
 
         const skyBoxMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, map: textureCube });
 
