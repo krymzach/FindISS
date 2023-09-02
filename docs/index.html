@@ -63,10 +63,6 @@
     </script>
 </head>
 <body>
-    <div class="zoom_buttons">
-        <div class="zoom_in_button" onclick="zoomIn()">+</div>
-        <div class="zoom_out_button" onclick="zoomOut()">-</div>
-    </div>
     <script type="module">
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -132,5 +128,9 @@
 
         camera.position.z = 5;
     </script>
+    <div class="zoom_buttons">
+        <div class="zoom_in_button" onclick="zoomIn()">+</div>
+        <div class="zoom_out_button" onclick="zoomOut()">-</div>
+    </div>
 </body>
 </html>
