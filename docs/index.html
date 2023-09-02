@@ -38,8 +38,8 @@
         const ambientLight = new THREE.AmbientLight()
         scene.add(ambientLight)
 
-        //const texture = new THREE.TextureLoader().load('./assets/Ocean_Mask_2K.png');
-        //const material = new THREE.MeshBasicMaterial({ map: texture });
+        const texture = new THREE.TextureLoader().load('./assets/Ocean_Mask_2K.png');
+        const material = new THREE.MeshBasicMaterial({ map: texture });
 
         const controls = new OrbitControls(camera, renderer.domElement);
         const loader = new GLTFLoader();
@@ -49,7 +49,7 @@
             './assets/Earth_2K.fbx',
             (object) => {
                 object.traverse(function (child) {
-                    //object.material = material;
+                    object.material = material;
                 })
                 object.scale.set(.01, .01, .01)
                 scene.add(object)
