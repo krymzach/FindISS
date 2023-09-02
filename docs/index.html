@@ -38,6 +38,8 @@
         const ambientLight = new THREE.AmbientLight()
         scene.add(ambientLight)
 
+        const texture = new THREE.TextureLoader().load('./assets/Textures.rar');
+        const material = new THREE.MeshBasicMaterial({ map: texture });
 
         const controls = new OrbitControls(camera, renderer.domElement);
         const loader = new GLTFLoader();
@@ -46,14 +48,9 @@
         fbxLoader.load(
             './assets/Earth_2K.fbx',
             (object) => {
-                // object.traverse(function (child) {
-                //     if ((child as THREE.Mesh).isMesh) {
-                //         // (child as THREE.Mesh).material = material
-                //         if ((child as THREE.Mesh).material) {
-                //             ((child as THREE.Mesh).material as THREE.MeshBasicMaterial).transparent = false
-                //         }
-                //     }
-                // })
+                object.traverse(function (child) {
+                    object.material = material;
+                })
                 object.scale.set(.01, .01, .01)
                 scene.add(object)
             },
@@ -64,11 +61,6 @@
                 console.log(error)
             }
         )
-
-        const geometry = new THREE.BoxGeometry(1, 1, 1);
-        const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-        const cube = new THREE.Mesh(geometry, material);
-        //scene.add(cube);
 
         camera.position.z = 5;
 
