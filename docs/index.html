@@ -80,14 +80,14 @@
         }
 
         function zoomIn() {
-            if(camera.position.z >= 4.5) {
-                camera.position.z -= 0.5;
+            if(camera.zoom <= 1.15) {
+                camera.zoom += 0.05;
             }
         }
 
         function zoomOut() {
-            if(camera.position.z <= 5.5) {
-                camera.position.z += 0.5;
+            if(camera.zoom >= 0.85) {
+                camera.zoom -= 0.05;
             }
         }
 
