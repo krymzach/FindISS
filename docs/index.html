@@ -110,14 +110,14 @@
         }
 
         function zoomIn() {
-            if(camera.zoom <= 1.15) {
+            if(camera.zoom <= 1.45) {
                 camera.zoom += 0.05;
                 camera.updateProjectionMatrix();
             }
         }
 
         function zoomOut() {
-            if(camera.zoom >= 0.85) {
+            if(camera.zoom >= 0.55) {
                 camera.zoom -= 0.05;
                 camera.updateProjectionMatrix();
             }
@@ -150,6 +150,8 @@
         camera.position.y = 2;
         camera.position.z = 5;
         const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.enableZoom = false;
         controls.maxDistance = 6
         controls.minDistance = 4
         const loader = new GLTFLoader();
