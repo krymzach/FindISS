@@ -23,6 +23,7 @@
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+        import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -33,10 +34,33 @@
         const controls = new OrbitControls(camera, renderer.domElement);
         const loader = new GLTFLoader();
 
+        const fbxLoader = new FBXLoader()
+        fbxLoader.load(
+            'Earth_2K.fbx',
+            (object) => {
+                // object.traverse(function (child) {
+                //     if ((child as THREE.Mesh).isMesh) {
+                //         // (child as THREE.Mesh).material = material
+                //         if ((child as THREE.Mesh).material) {
+                //             ((child as THREE.Mesh).material as THREE.MeshBasicMaterial).transparent = false
+                //         }
+                //     }
+                // })
+                // object.scale.set(.01, .01, .01)
+                scene.add(object)
+            },
+            (xhr) => {
+                console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+            },
+            (error) => {
+                console.log(error)
+            }
+        )
+
         const geometry = new THREE.BoxGeometry(1, 1, 1);
         const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
         const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
+        //scene.add(cube);
 
         camera.position.z = 5;
 
