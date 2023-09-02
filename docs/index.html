@@ -127,6 +127,12 @@
         )
 
         camera.position.z = 5;
+
+        const animate = function () {
+            requestAnimationFrame( animate );
+            renderer.render( scene, camera );
+        };
+        animate();
     </script>
     <div class="zoom_buttons">
         <div class="zoom_in_button" onclick="zoomIn()">+</div>
