@@ -48,9 +48,13 @@
         fbxLoader.load(
             './assets/Earth_2K.fbx',
             (object) => {
-                const objectTextured = new THREE.Mesh(object, material)
-                object.scale.set(.01, .01, .01)
-                scene.add(objectTextured)
+                object.traverse( child => {
+                    if (child.isMesh){
+                        child.material = material;
+                    }
+                })
+                object.scale.set(.01, .01, .01);
+                scene.add(objectTextured);
             },
             (xhr) => {
                 console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
