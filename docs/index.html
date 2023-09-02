@@ -30,7 +30,7 @@
         const skyBoxTextureLoader = new THREE.TextureLoader();
         const skyBoxTexture = skyBoxTextureLoader.load('./assets/skybox-texture-map.png')
 
-        const skyBoxMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, map: textureCube });
+        const skyBoxMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, map: skyBoxTexture });
 
         scene.background = skyBoxMaterial
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
