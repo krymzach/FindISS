@@ -72,8 +72,8 @@
         loader.load(
             './assets/ISS_stationary.glb',
             function (object) {
-                object.scale.set(0.1, 0.1, 0.1);
-                object.position = new THREE.Vector3(4.5, 4.5, 4.5);
+                object.scene.scale.set(0.1, 0.1, 0.1);
+                object.scene.position = new THREE.Vector3(4.5, 4.5, 4.5);
                 scene.add(object.scene);
             }
         )
