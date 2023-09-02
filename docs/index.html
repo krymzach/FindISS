@@ -53,6 +53,8 @@
         //const material5 = new THREE.MeshPhongMaterial({ map: texture5 });
 
         const controls = new OrbitControls(camera, renderer.domElement);
+        OrbitControls.maxZoom = 10
+        OrbitControls.minZoom = 2
         const loader = new GLTFLoader();
 
         const fbxLoader = new FBXLoader()
