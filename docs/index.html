@@ -7,6 +7,16 @@
     <title>Find ISS</title>
     <style>
         body { margin: 0; }
+        .zoom_buttons {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            width: 20px;
+            height: 40px;
+            background: red;
+            border-radius: 3px;
+            border: 2px solid white;
+        }
     </style>
     <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
     <script type="importmap">
@@ -19,6 +29,10 @@
     </script>
 </head>
 <body>
+    <div class="zoom_buttons">
+        <div class="zoom_in_button">+</div>
+        <div class="zoom_out_button">-</div>
+    </div>
     <script type="module">
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
