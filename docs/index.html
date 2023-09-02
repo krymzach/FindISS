@@ -25,6 +25,15 @@
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
         import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
+        async function getISSInfo() {
+            const data = await fetch('https://api.wheretheiss.at/v1/satellites/25544').then((res) => res.json);
+            console.log(data.latitude);
+            console.log(data.longitude);
+            console.log(data.altitude);
+        }
+
+        getISSInfo();
+
         const scene = new THREE.Scene();
         const backgroundTexture = new THREE.TextureLoader().load("./assets/stars.jpg");
         scene.background = backgroundTexture
