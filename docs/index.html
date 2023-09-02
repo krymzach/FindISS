@@ -32,7 +32,7 @@
 
         const skyBoxMaterial = new THREE.MeshPhongMaterial({ map: skyBoxTexture });
 
-        const sbtexture = new THREE.TextureLoader().load("textures/skybox-texture-map.png");
+        const sbtexture = new THREE.TextureLoader().load("./assets/skybox-texture-map.png");
         sbtexture.wrapS = THREE.RepeatWrapping;
         sbtexture.wrapT = THREE.RepeatWrapping;
         sbtexture.repeat.set(4, 4);
