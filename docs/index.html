@@ -64,8 +64,8 @@
 </head>
 <body>
     <div class="zoom_buttons">
-        <div class="zoom_in_button">+</div>
-        <div class="zoom_out_button">-</div>
+        <div class="zoom_in_button" onclick="zoomIn()">+</div>
+        <div class="zoom_out_button" onclick="zoomOut()">-</div>
     </div>
     <script type="module">
         import * as THREE from 'three';
@@ -77,6 +77,18 @@
             fetch('https://api.wheretheiss.at/v1/satellites/25544', {
                 method: "GET"
             }).then((response) => response.json()).then((json) => console.log(json));
+        }
+
+        function zoomIn() {
+            if(camera.position.z >= 4.5) {
+                camera.position.z -= 0.5;
+            }
+        }
+
+        function zoomOut() {
+            if(camera.position.z <= 5.5) {
+                camera.position.z += 0.5;
+            }
         }
 
         getISSInfo();
