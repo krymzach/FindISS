@@ -110,15 +110,15 @@
         }
 
         function zoomIn() {
-            if(camera.zoom <= 3.45) {
-                camera.zoom += 0.05;
+            if(camera.zoom <= 3.25) {
+                camera.zoom += 0.25;
                 camera.updateProjectionMatrix();
             }
         }
 
         function zoomOut() {
-            if(camera.zoom >= 0.55) {
-                camera.zoom -= 0.05;
+            if(camera.zoom >= 0.75) {
+                camera.zoom -= 0.25;
                 camera.updateProjectionMatrix();
             }
         }
