@@ -103,7 +103,9 @@
 
         const ambientLight = new THREE.AmbientLight()
         scene.add(ambientLight)
-
+        camera.position.x = 2;
+        camera.position.y = 2;
+        camera.position.z = 5;
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.maxDistance = 6
         controls.minDistance = 4
@@ -125,8 +127,6 @@
                 scene.add(object.scene);
             }
         )
-
-        camera.position.z = 5;
 
         const animate = function () {
             requestAnimationFrame( animate );
