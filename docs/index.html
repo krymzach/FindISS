@@ -81,13 +81,13 @@
 
         function zoomIn() {
             if(camera.zoom <= 1.15) {
-                camera.zoom += 0.05;
+                camera.zoom.set(camera.zoom + 0.05);
             }
         }
 
         function zoomOut() {
             if(camera.zoom >= 0.85) {
-                camera.zoom -= 0.05;
+                camera.zoom.set(camera.zoom - 0.05);
             }
         }
 
