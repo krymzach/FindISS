@@ -41,16 +41,8 @@
         scene.add(ambientLight)
 
         const textureLoader = new THREE.TextureLoader();
-        const texture1 = textureLoader.load('./assets/Ocean_Mask_2K.png');
-        const texture2 = textureLoader.load('./assets/Bump_2K.png');
-        const texture3 = textureLoader.load('./assets/Clouds_2K.png');
-        const texture4 = textureLoader.load('./assets/Diffuse_2K.png');
-        //const texture5 = textureLoader.load('./assets/Night_lights_2K.png');
-        const material1 = new THREE.MeshPhongMaterial({ map: texture1 });
-        const material2 = new THREE.MeshPhongMaterial({ map: texture2 });
-        const material3 = new THREE.MeshPhongMaterial({ map: texture3 });
-        const material4 = new THREE.MeshPhongMaterial({ map: texture4 });
-        //const material5 = new THREE.MeshPhongMaterial({ map: texture5 });
+        const texture = textureLoader.load('./assets/Diffuse_2K.png');
+        const material = new THREE.MeshPhongMaterial({ map: texture });
 
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.maxDistance = 6
@@ -63,11 +55,7 @@
             (object) => {
                 object.traverse( child => {
                     if (child.isMesh){
-                        child.material = material4;
-                        //child.material = material4;
-                        //child.material = material3;
-                        //child.material = material2;
-                        //child.material = material5;
+                        child.material = material;
                     }
                 })
                 object.scale.set(.009, .009, .009);
