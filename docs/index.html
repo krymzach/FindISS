@@ -34,10 +34,6 @@
             -moz-user-select: none;
             -webkit-user-select: none;
         }
-        .zoom_in_button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            cursor: pointer;
-        }
         .zoom_out_button {
             width: 40px;
             height: 40px;
@@ -51,10 +47,6 @@
             user-select: none;
             -moz-user-select: none;
             -webkit-user-select: none;
-        }
-        .zoom_out_button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            cursor: pointer;
         }
         .focus_button {
             position: absolute;
@@ -140,11 +132,40 @@
             }
         }
 
+        function zoomInMouseEnter() {
+            if(camera.zoom < 20) {
+                zoomInButton.style.background = "background: rgba(255, 255, 255, 0.2)";
+                zoomInButton.style.cursor = "pointer";
+            }
+        }
+
+        function zoomOutMouseEnter() {
+            if(camera.zoom > 0.5) {
+                zoomOutButton.style.background = "background: rgba(255, 255, 255, 0.2)";
+                zoomOutButton.style.cursor = "pointer";
+            }
+        }
+
+        function zoomInMouseLeave() {
+            zoomInButton.style.background = "background: rgba(255, 255, 255, 0)";
+            zoomInButton.style.cursor = "default";
+        }
+
+        function zoomOutMouseLeave() {
+            zoomOutButton.style.background = "background: rgba(255, 255, 255, 0)";
+            zoomOutButton.style.cursor = "default";
+        }
+
         const zoomInButton = document.getElementById("zoom_in_button");
         const zoomOutButton = document.getElementById("zoom_out_button");
 
         zoomInButton.addEventListener("click", zoomIn, false);
         zoomOutButton.addEventListener("click", zoomOut, false);
+
+        zoomInButton.addEventListener("mouseenter", zoomInMouseEnter, false);
+        zoomOutButton.addEventListener("mouseenter", zoomOutMouseEnter, false);
+        zoomInButton.addEventListener("mouseleave", zoomInMouseLeave, false);
+        zoomOutButton.addEventListener("mouseleave", zoomOutMouseLeave, false);
 
         getISSInfo();
 
