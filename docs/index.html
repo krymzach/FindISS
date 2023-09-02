@@ -32,7 +32,12 @@
 
         const skyBoxMaterial = new THREE.MeshPhongMaterial({ map: skyBoxTexture });
 
-        scene.background = skyBoxMaterial
+        const sbtexture = new THREE.TextureLoader().load("textures/skybox-texture-map.png");
+        sbtexture.wrapS = THREE.RepeatWrapping;
+        sbtexture.wrapT = THREE.RepeatWrapping;
+        sbtexture.repeat.set( 4, 4 );
+
+        scene.background = sbtexture
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
