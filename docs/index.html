@@ -39,12 +39,10 @@
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
         import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
-        async function getISSInfo() {
-            const data = await fetch('https://api.wheretheiss.at/v1/satellites/25544').then((res) => res.json);
-            console.log(data);
-            console.log(data.latitude);
-            console.log(data.longitude);
-            console.log(data.altitude);
+        function getISSInfo() {
+            fetch('https://api.wheretheiss.at/v1/satellites/25544', {
+                method: "GET"
+            }).then((response) => response.json()).then((json) => console.log(json));
         }
 
         getISSInfo();
