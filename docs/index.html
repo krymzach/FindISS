@@ -111,8 +111,16 @@
         }
 
         function zoomIn() {
-            if(camera.zoom <= 9.75) {
-                camera.zoom += 0.25;
+            if(camera.zoom <= 19.75) {
+                if(camera.zoom < 3) {
+                    camera.zoom += 0.25;
+                } else if(camera.zoom < 6) {
+                    camera.zoom += 0.5;
+                } else if(camera.zoom < 10) {
+                    camera.zoom += 0.75;
+                } else {
+                    camera.zoom += 1;
+                }
                 camera.updateProjectionMatrix();
             }
         }
