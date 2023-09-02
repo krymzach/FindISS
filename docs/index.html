@@ -101,7 +101,7 @@
 
         const scene = new THREE.Scene();
         const backgroundTexture = new THREE.TextureLoader().load("./assets/stars.jpg");
-        backgroundTexture.colorSpace = THREE.sRGBEncoding;
+        backgroundTexture.colorSpace = THREE.SRGBColorSpace;
         scene.background = backgroundTexture
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer();
