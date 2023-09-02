@@ -39,11 +39,14 @@
         scene.add(ambientLight)
 
         const textureLoader = new THREE.TextureLoader();
-        let texture1 = textureLoader.load('./assets/Ocean_Mask_2K.png');
-        let texture2 = textureLoader.load('./assets/Bump_2K.png');
-        let texture3 = textureLoader.load('./assets/Clouds_2K.png');
-        let texture4 = textureLoader.load('./assets/Diffuse_2K.png');
-        const material = new THREE.MeshPhongMaterial({ map: texture1, texture2, texture3, texture4 });
+        const texture1 = textureLoader.load('./assets/Ocean_Mask_2K.png');
+        const texture2 = textureLoader.load('./assets/Bump_2K.png');
+        const texture3 = textureLoader.load('./assets/Clouds_2K.png');
+        const texture4 = textureLoader.load('./assets/Diffuse_2K.png');
+        const material1 = new THREE.MeshPhongMaterial({ map: texture1 });
+        const material2 = new THREE.MeshPhongMaterial({ map: texture2 });
+        const material3 = new THREE.MeshPhongMaterial({ map: texture3 });
+        const material4 = new THREE.MeshPhongMaterial({ map: texture4 });
 
         const controls = new OrbitControls(camera, renderer.domElement);
         const loader = new GLTFLoader();
@@ -54,7 +57,7 @@
             (object) => {
                 object.traverse( child => {
                     if (child.isMesh){
-                        child.material = material;
+                        child.material = [material1, material2, material3, material4];
                     }
                 })
                 object.scale.set(.01, .01, .01);
