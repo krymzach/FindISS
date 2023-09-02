@@ -63,6 +63,10 @@
     </script>
 </head>
 <body>
+    <div class="zoom_buttons">
+        <div class="zoom_in_button" id="zoom_in_button">+</div>
+        <div class="zoom_out_button" id="zoom_out_button">-</div>
+    </div>
     <script type="module">
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -86,6 +90,12 @@
                 camera.position.z += 0.5;
             }
         }
+
+        const zoomInButton = document.getElementById("zoom_in_button");
+        const zoomOutButton = document.getElementById("zoom_out_button");
+
+        zoomInButton.addEventListener("click", zoomIn, false);
+        zoomOutButton.addEventListener("click", zoomOut, false);
 
         getISSInfo();
 
@@ -134,9 +144,5 @@
         };
         animate();
     </script>
-    <div class="zoom_buttons">
-        <div class="zoom_in_button" onclick="zoomIn()">+</div>
-        <div class="zoom_out_button" onclick="zoomOut()">-</div>
-    </div>
 </body>
 </html>
