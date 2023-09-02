@@ -38,12 +38,12 @@
         const ambientLight = new THREE.AmbientLight()
         scene.add(ambientLight)
 
-        const texture = new THREE.TextureLoader();
-        texture.load('./assets/Ocean_Mask_2K.png');
-        texture.load('./assets/Bumb_2K.png');
-        texture.load('./assets/Clouds_2K.png');
-        texture.load('./assets/Diffuse_2K.png');
-        const material = new THREE.MeshPhongMaterial({ map: texture });
+        const textureLoader = new THREE.TextureLoader();
+        let texture1 = textureLoader.load('./assets/Ocean_Mask_2K.png');
+        let texture2 = textureLoader.load('./assets/Bumb_2K.png');
+        let texture3 = textureLoader.load('./assets/Clouds_2K.png');
+        let texture4 = textureLoader.load('./assets/Diffuse_2K.png');
+        const material = new THREE.MeshPhongMaterial({ map: texture1, texture2, texture3, texture4 });
 
         const controls = new OrbitControls(camera, renderer.domElement);
         const loader = new GLTFLoader();
