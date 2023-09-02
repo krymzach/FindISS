@@ -56,7 +56,25 @@
             background: rgba(255, 255, 255, 0.2);
             cursor: pointer;
         }
-
+        .focus_button {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            color: white;
+            background: rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+        }
+        .focus_button:hover {
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
     </style>
     <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
     <script type="importmap">
@@ -73,6 +91,7 @@
         <div class="zoom_in_button" id="zoom_in_button">+</div>
         <div class="zoom_out_button" id="zoom_out_button">-</div>
     </div>
+    <div class="focus_button" id="focus_button">🞋</div>
     <script type="module">
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
