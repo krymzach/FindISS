@@ -69,6 +69,14 @@
             }
         )
 
+        loader.load(
+            './assets/ISS_stationary.glb',
+            (object) => {
+                object.position = new THREE.Vector3(4.5, 4.5, 4.5);
+                scene.add(object);
+            }
+        )
+
         camera.position.z = 5;
 
         function animate() {
