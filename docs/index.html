@@ -39,7 +39,7 @@
         scene.add(ambientLight)
 
         const texture = new THREE.TextureLoader().load('./assets/Ocean_Mask_2K.png');
-        const material = new THREE.MeshBasicMaterial({ map: texture });
+        const material = new THREE.MeshPhongMaterial({ map: texture });
 
         const controls = new OrbitControls(camera, renderer.domElement);
         const loader = new GLTFLoader();
@@ -48,11 +48,9 @@
         fbxLoader.load(
             './assets/Earth_2K.fbx',
             (object) => {
-                object.traverse(function (child) {
-                    object.material = material;
-                })
+                const objectTextured = new THREE.Mesh(object, material)
                 object.scale.set(.01, .01, .01)
-                scene.add(object)
+                scene.add(objectTextured)
             },
             (xhr) => {
                 console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
