@@ -97,10 +97,11 @@
         import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
         function getISSInfo() {
-            let fetchResponse = fetch('https://api.wheretheiss.at/v1/satellites/25544', {
+            fetch('https://api.wheretheiss.at/v1/satellites/25544', {
                 method: "GET"
+            }).then((response) => response.json()).then((res) => {
+                return res;
             });
-            return fetchResponse.json();
         }
 
         function zoomIn() {
