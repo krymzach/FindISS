@@ -98,11 +98,11 @@
 
         function convertLatLongToPosition(latitude, longitude) {
             // Starting Lat, Long is 0, 0
-            var phi   = (90-latitude)*(Math.PI/180),
-            theta = (longitude+180)*(Math.PI/180),
-            x = -((3.5) * Math.sin(phi)*Math.cos(theta)),
-            z = ((3.5) * Math.sin(phi)*Math.sin(theta)),
-            y = ((3.5) * Math.cos(phi));
+            let phi   = (90-latitude)*(Math.PI/180);
+            let theta = (longitude+180)*(Math.PI/180);
+            let x = -((3.5) * Math.sin(phi)*Math.cos(theta));
+            let z = ((3.5) * Math.sin(phi)*Math.sin(theta));
+            let y = ((3.5) * Math.cos(phi));
 
             return [x, y, z];
         }
