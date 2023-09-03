@@ -120,7 +120,9 @@
         }
 
         let coords = getISSInfo();
+        console.log(coords);
         let issPos = convertLatLongToPosition(coords[0], coords[1]);
+        console.log(issPos);
 
         function zoomIn() {
             if(camera.zoom <= 19.75) {
@@ -205,9 +207,9 @@
 
         const ambientLight = new THREE.AmbientLight()
         scene.add(ambientLight)
-        camera.position.x = 0;
-        camera.position.y = 0;
-        camera.position.z = -5;
+        camera.position.x = issPos[0] * 1.42857142857;
+        camera.position.y = issPos[1] * 1.42857142857;
+        camera.position.z = issPos[2] * 1.42857142857;
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableZoom = false;
         controls.enablePan = false;
