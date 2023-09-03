@@ -4,4 +4,4 @@ A futuristic 3D website that allows you to follow the International Space Statio
 
 The ISS moves every 600 frames on the website accurately and you can see specific statistics about the ISS in the top right of the website.
 
-The GitHub Pages demo site can be found [here](https://krymzach.github.io/FollowISS/)
+The GitHub Pages demo site can be found [here](https://krymzach.github.io/FollowISS/).
