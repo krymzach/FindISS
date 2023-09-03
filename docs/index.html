@@ -102,7 +102,7 @@
             let py = 0;
             let pz = 0;
             // rotation on x, y, z
-            let tx = Math.PI / 2;
+            let tx = Math.PI;
             let ty = Math.PI / 2;
             let tz = 0;
             // The transformation matrices.
@@ -137,9 +137,6 @@
                 return ISSInfo;
             });
         }
-
-        let ISSData = getISSInfo();
-        console.log(ISSData);
 
         function zoomIn() {
             if(camera.zoom <= 19.75) {
