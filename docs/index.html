@@ -98,31 +98,6 @@
 
         function convertLatLongToPosition(latitude, longitude) {
             // Starting Lat, Long is -90, 0
-            let px = 3.5;
-            let py = 0;
-            let pz = 0;
-            // rotation on x, y, z
-            let tx = Math.PI;
-            let ty = Math.PI / 2;
-            let tz = 0;
-            // The transformation matrices.
-            let rx = [1, 0, 0, 0, Math.cos(tx), -Math.sin(tx), 0, Math.sin(tx), Math.cos(tx)];
-            let ry = [Math.cos(ty), 0, Math.sin(ty), 0, 1, 0, -Math.sin(ty), 0, Math.cos(ty)];
-            let rz = [Math.cos(tz), -Math.sin(tz), 0, Math.sin(tz), Math.cos(tz), 0, 0, 0, 1];
-            // Matrix mutiplication
-            let rotatedX = [(rx[0] * px + rx[1] * py + rx[2] * pz), (rx[3] * px + rx[4] * py + rx[5] * pz), (rx[6] * px + rx[7] * py + rx[8] * pz)];
-            px = rotatedX[0];
-            py = rotatedX[1];
-            pz = rotatedX[2];
-            let rotatedY = [(ry[0] * px + ry[1] * py + ry[2] * pz), (ry[3] * px + ry[4] * py + ry[5] * pz), (ry[6] * px + ry[7] * py + ry[8] * pz)];
-            px = rotatedY[0];
-            py = rotatedY[1];
-            pz = rotatedY[2];
-            let rotatedZ = [(rz[0] * px + rz[1] * py + rz[2] * pz), (rz[3] * px + rz[4] * py + rz[5] * pz), (rz[6] * px + rz[7] * py + rz[8] * pz)];
-            px = rotatedZ[0];
-            py = rotatedZ[1];
-            pz = rotatedZ[2];
-            return [px, py, pz]
         }
 
         console.log(convertLatLongToPosition(10, 10));
@@ -243,7 +218,7 @@
             './assets/ISS_stationary.glb',
             function (object) {
                 object.scene.scale.set(0.001, 0.001, 0.001);
-                object.scene.position.set(3.5, 0, 0);
+                object.scene.position.set(0, 0, -3.5);
                 scene.add(object.scene);
             }
         )
