@@ -178,6 +178,9 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
+        const axesHelper = new THREE.AxesHelper( 5 );
+        scene.add( axesHelper );
+
         const light = new THREE.PointLight(0xffffff, 1000)
         light.position.set(6.4, 12.2, 6.0)
         scene.add(light)
