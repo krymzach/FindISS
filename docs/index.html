@@ -211,7 +211,6 @@
         camera.position.x = issPos[0] * 1.42857142857;
         camera.position.y = issPos[1] * 1.42857142857;
         camera.position.z = issPos[2] * 1.42857142857;
-        camera.zoom = 20;
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableZoom = false;
         controls.enablePan = false;
@@ -235,6 +234,8 @@
                 scene.add(object.scene);
             }
         )
+
+        camera.zoom = 20;
 
         const animate = function () {
             requestAnimationFrame(animate);
