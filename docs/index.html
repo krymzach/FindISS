@@ -202,7 +202,7 @@
         const loader = new GLTFLoader();
 
         loader.load(
-            './assets/Earth_1_12756.glb',
+            './assets/Earth_1_12756.glb', // Radius = 3
             function (object) {
                 object.scene.scale.set(.006, .006, .006);
                 scene.add(object.scene);
@@ -213,7 +213,7 @@
             './assets/ISS_stationary.glb',
             function (object) {
                 object.scene.scale.set(0.001, 0.001, 0.001);
-                object.scene.position.set(3, 0, 0);
+                object.scene.position.set(3.25, 0, 0);
                 scene.add(object.scene);
             }
         )
