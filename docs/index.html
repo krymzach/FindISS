@@ -196,9 +196,9 @@
 
         const ambientLight = new THREE.AmbientLight()
         scene.add(ambientLight)
-        camera.position.x = 5;
+        camera.position.x = 0;
         camera.position.y = 0;
-        camera.position.z = 0;
+        camera.position.z = -5;
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableZoom = false;
         controls.enablePan = false;
