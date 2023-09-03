@@ -236,14 +236,15 @@
         )
 
         camera.zoom = 20;
-        console.log(scene.children);
         
         let frame = 0;
 
-        const animate = function () {
+        const animate = async function () {
             requestAnimationFrame(animate);
             frame += 1;
             if(frame >= 600) {
+                issPos = await convertLatLongToPosition();
+                scene.children[4].position.set(issPos[0], issPos[1], issPos[2]);
                 frame = 0;
             }
             renderer.render(scene, camera);
