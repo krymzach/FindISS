@@ -100,6 +100,7 @@
             fetch('https://api.wheretheiss.at/v1/satellites/25544', {
                 method: "GET"
             }).then((response) => response.json()).then((json) => {
+                console.log(json);
                 return json;
             });
         }
