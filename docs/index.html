@@ -99,7 +99,8 @@
         function getISSInfo() {
             fetch('https://api.wheretheiss.at/v1/satellites/25544', {
                 method: "GET"
-            }).then((response) => response.json()).then((json) => console.log(json));
+            }).then((response) => response.json())
+            return response.json();
         }
 
         function zoomIn() {
@@ -167,7 +168,8 @@
         zoomInButton.addEventListener("mouseleave", zoomInMouseLeave, false);
         zoomOutButton.addEventListener("mouseleave", zoomOutMouseLeave, false);
 
-        getISSInfo();
+        const ISSInfo = getISSInfo();
+        console.log(ISSInfo);
 
         const scene = new THREE.Scene();
         const backgroundTexture = new THREE.TextureLoader().load("./assets/stars.jpg");
