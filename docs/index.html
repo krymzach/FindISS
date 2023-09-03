@@ -101,7 +101,7 @@
                 method: "GET"
             }).then((response) => response.json()).then((json) => {
                 console.log(json);
-                return json;
+                return [json['altitude'], json['latitude'], json['longitude'], json['velocity']];
             });
         }
 
