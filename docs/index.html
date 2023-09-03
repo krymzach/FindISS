@@ -99,8 +99,8 @@
         function getISSInfo() {
             fetch('https://api.wheretheiss.at/v1/satellites/25544', {
                 method: "GET"
-            }).then((response) => response.json()).then((res) => {
-                return res;
+            }).then((response) => response.json()).then((json) => {
+                return json;
             });
         }
 
