@@ -102,8 +102,8 @@
                 method: "GET"
             }).then((response) => response.json()).then((json) => {
                 ISSInfo = json;
+                return ISSInfo;
             });
-            return ISSInfo;
         }
 
         let ISSData = getISSInfo();
