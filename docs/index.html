@@ -96,42 +96,29 @@
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
         import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
-        function convertLatLongToPosition(latitude, longitude) {
-            // Starting Lat, Long is 0, 0
-            console.log(latitude);
-            console.log(longitude);
-            let phi = (90-latitude)*(Math.PI/180);
-            let theta = (longitude+180)*(Math.PI/180);
-            console.log(phi);
-            console.log(theta);
-            let x = -((3.5) * Math.sin(phi)*Math.cos(theta));
-            let z = ((3.5) * Math.sin(phi)*Math.sin(theta));
-            let y = ((3.5) * Math.cos(phi));
-            console.log(x);
-            console.log(y);
-            console.log(z);
-
-            return [x, y, z];
-        }
-
-        function getISSInfo() {
-            let ISSInfo;
-            let latlong = [];
+        function convertLatLongToPosition() {
+            pos = [];
             fetch('https://api.wheretheiss.at/v1/satellites/25544', {
                 method: "GET"
             }).then((response) => response.json()).then((json) => {
-                latlong.push(json['latitude']);
-                latlong.push(json['longitude']);
+                let phi = (90-json['latitude'])*(Math.PI/180);
+                let theta = (json['longitude']+180)*(Math.PI/180);
+                console.log(phi);
+                console.log(theta);
+                let x = -((3.5) * Math.sin(phi)*Math.cos(theta));
+                let z = ((3.5) * Math.sin(phi)*Math.sin(theta));
+                let y = ((3.5) * Math.cos(phi));
+                console.log(x);
+                console.log(y);
+                console.log(z);
+                pos.push(x);
+                pos.push(y);
+                pos.push(z);
             });
-            return latlong;
+            return pos;
         }
 
-        let coords = getISSInfo();
-        console.log(coords);
-        let lat = coords[0];
-        let long = coords[1];
-        console.log(lat);
-        console.log(long);
+
         let issPos = convertLatLongToPosition(coords[0], coords[1]);
         console.log(issPos);
 
