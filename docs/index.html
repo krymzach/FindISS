@@ -130,6 +130,8 @@
                 fetch('https://api.wheretheiss.at/v1/satellites/25544', {
                     method: "GET"
                 }).then((response) => response.json()).then((json) => {
+                    console.log(json['latitude']);
+                    console.log(json['longitude']);
                     let phi = (90-json['latitude'])*(Math.PI/180);
                     let theta = (json['longitude']+180)*(Math.PI/180);
                     let x = -((3.5) * Math.sin(phi)*Math.cos(theta));
