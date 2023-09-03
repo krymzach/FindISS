@@ -147,8 +147,8 @@
                     const statsVel = document.getElementById("stats_velocity");
                     statsLat.innerHTML = "Latitude: " + json['latitude'].toFixed(3).toString();
                     statsLong.innerHTML = "Longitude: " + json['longitude'].toFixed(3).toString();
-                    statsAlt.innerHTML = "Altitude: " + json['altitude'].toFixed(3).toString();
-                    statsVel.innerHTML = "Velocity: " + json['velocity'].toFixed(3).toString();
+                    statsAlt.innerHTML = "Altitude: " + json['altitude'].toFixed(3).toString() + " km";
+                    statsVel.innerHTML = "Velocity: " + json['velocity'].toFixed(3).toString() + " km/h";
                     console.log(json['latitude']);
                     console.log(json['longitude']);
                     //let phi = (90-json['latitude'])*(Math.PI/180);
