@@ -98,16 +98,13 @@
 
         function convertLatLongToPosition(latitude, longitude) {
             // Starting Lat, Long is -90, 0
-            let rotx
-            let roty
-            let rotz
             let px = 3.5;
             let py = 0;
             let pz = 0;
             // rotation on x, y, z
-            let tx = rad[0];
-            let ty = rad[1];
-            let tz = rad[2];
+            let tx = Math.PI / 2;
+            let ty = Math.PI / 2;
+            let tz = Math.PI / 2;
             // The transformation matrices.
             let rx = [1, 0, 0, 0, Math.cos(tx), -Math.sin(tx), 0, Math.sin(tx), Math.cos(tx)];
             let ry = [Math.cos(ty), 0, Math.sin(ty), 0, 1, 0, -Math.sin(ty), 0, Math.cos(ty)];
@@ -125,8 +122,10 @@
             px = rotatedZ[0];
             py = rotatedZ[1];
             pz = rotatedZ[2];
-            return [px + ox, py + oy, pz + oz]
+            return [px, py, pz]
         }
+
+        console.log(convertLatLongToPosition(10, 10));
 
         function getISSInfo() {
             let ISSInfo;
