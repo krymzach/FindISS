@@ -293,7 +293,7 @@
         const animate = async function () {
             requestAnimationFrame(animate);
             frame += 1;
-            if(frame = 600) {
+            if(frame == 600) {
                 frame = 0;
                 issPos = await convertLatLongToPosition();
                 scene.children[3].position.set(issPos[0], issPos[1], issPos[2]);
