@@ -199,9 +199,6 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        const axesHelper = new THREE.AxesHelper( 5 );
-        scene.add( axesHelper );
-
         const light = new THREE.PointLight(0xffffff, 1000)
         light.position.set(6.4, 12.2, 6.0)
         scene.add(light)
@@ -244,7 +241,7 @@
             frame += 1;
             if(frame >= 600) {
                 issPos = await convertLatLongToPosition();
-                scene.children[4].position.set(issPos[0], issPos[1], issPos[2]);
+                scene.children[3].position.set(issPos[0], issPos[1], issPos[2]);
                 frame = 0;
             }
             renderer.render(scene, camera);
