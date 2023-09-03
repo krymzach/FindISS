@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find ISS</title>
+    <title>Follow ISS</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Ubuntu:wght@300;400;500;700&display=swap');
         body { margin: 0; }
@@ -223,6 +223,7 @@
             camera.position.z = issPos[2] * 1.42857142857;
             camera.zoom = 20;
             camera.updateProjectionMatrix();
+            controls.update();
         }
 
         const zoomInButton = document.getElementById("zoom_in_button");
