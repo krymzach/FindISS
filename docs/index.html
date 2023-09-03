@@ -98,6 +98,8 @@
 
         function convertLatLongToPosition(latitude, longitude) {
             // Starting Lat, Long is 0, 0
+            console.log(latitude);
+            console.log(longitude);
             let phi = (90-latitude)*(Math.PI/180);
             let theta = (longitude+180)*(Math.PI/180);
             console.log(phi);
