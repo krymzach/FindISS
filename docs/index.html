@@ -264,6 +264,12 @@
         controls.minDistance = 4
         const loader = new GLTFLoader();
 
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }, false)
+
         loader.load(
             './assets/Earth_1_12756.glb',
             function (object) {
