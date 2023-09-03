@@ -231,13 +231,16 @@
                 scene.add(object.scene);
             }
         )
-
-        camera.zoom = 20;
         
         let frame = 0;
+        let startZoom = false;
 
         const animate = async function () {
             requestAnimationFrame(animate);
+            if(!startZoom) {
+                camera.zoom = 20;
+                startZoom = true;
+            }
             frame += 1;
             if(frame >= 600) {
                 issPos = await convertLatLongToPosition();
