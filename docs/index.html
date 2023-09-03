@@ -149,8 +149,6 @@
                     statsLong.innerHTML = "Longitude: " + json['longitude'].toFixed(3).toString();
                     statsAlt.innerHTML = "Altitude: " + json['altitude'].toFixed(3).toString() + " km";
                     statsVel.innerHTML = "Velocity: " + json['velocity'].toFixed(3).toString() + " km/h";
-                    console.log(json['latitude']);
-                    console.log(json['longitude']);
                     let phi = (90-json['latitude'])*(Math.PI/180);
                     let theta = (json['longitude']+180)*(Math.PI/180);
                     let x = -((3.5) * Math.sin(phi)*Math.cos(theta));
