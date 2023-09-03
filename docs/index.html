@@ -96,19 +96,16 @@
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
         import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
-        let ISSInfo;
-
         function getISSInfo() {
             fetch('https://api.wheretheiss.at/v1/satellites/25544', {
                 method: "GET"
             }).then((response) => response.json()).then((json) => {
-                ISSInfo = json;
+                let ISSInfo = json;
             });
+            return ISSInfo;
         }
 
-        getISSInfo();
-
-        console.log(ISSInfo);
+        let ISSData = getISSInfo();
 
         function zoomIn() {
             if(camera.zoom <= 19.75) {
