@@ -236,9 +236,16 @@
         )
 
         camera.zoom = 20;
+        console.log(scene.children);
+        
+        let frame = 0;
 
         const animate = function () {
             requestAnimationFrame(animate);
+            frame += 1;
+            if(frame >= 600) {
+                frame = 0;
+            }
             renderer.render(scene, camera);
         };
         animate();
