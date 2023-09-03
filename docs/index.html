@@ -192,8 +192,8 @@
         const ambientLight = new THREE.AmbientLight()
         scene.add(ambientLight)
         camera.position.x = 5;
-        camera.position.y = 5;
-        camera.position.z = 5;
+        camera.position.y = 0;
+        camera.position.z = 0;
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableZoom = false;
         controls.enablePan = false;
@@ -213,7 +213,7 @@
             './assets/ISS_stationary.glb',
             function (object) {
                 object.scene.scale.set(0.001, 0.001, 0.001);
-                object.scene.position.set(2, 2, 2);
+                object.scene.position.set(2, 0, 0);
                 scene.add(object.scene);
             }
         )
