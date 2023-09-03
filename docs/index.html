@@ -189,6 +189,7 @@
         camera.position.z = 5;
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableZoom = false;
+        controls.enablePan = false;
         controls.maxDistance = 6
         controls.minDistance = 4
         const loader = new GLTFLoader();
