@@ -109,15 +109,17 @@
 
         function getISSInfo() {
             let ISSInfo;
+            let latlong = [];
             fetch('https://api.wheretheiss.at/v1/satellites/25544', {
                 method: "GET"
             }).then((response) => response.json()).then((json) => {
-                ISSInfo = json;
-                console.log(json['latitude']);
+                latlong.push(json['latitude']);
+                latlong.push(json['longitude']);
             });
+            return latlong;
         }
 
-        getISSInfo();
+        let coords = getISSInfo();
 
         function zoomIn() {
             if(camera.zoom <= 19.75) {
