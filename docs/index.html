@@ -97,29 +97,26 @@
         import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
         function convertLatLongToPosition() {
-            let pos = [];
-            fetch('https://api.wheretheiss.at/v1/satellites/25544', {
-                method: "GET"
-            }).then((response) => response.json()).then((json) => {
-                let phi = (90-json['latitude'])*(Math.PI/180);
-                let theta = (json['longitude']+180)*(Math.PI/180);
-                let x = -((3.5) * Math.sin(phi)*Math.cos(theta));
-                let z = ((3.5) * Math.sin(phi)*Math.sin(theta));
-                let y = ((3.5) * Math.cos(phi));
-                pos[0] = x;
-                pos[1] = y;
-                pos[2] = z;
+            return new Promise((resolve) => {
+                fetch('https://api.wheretheiss.at/v1/satellites/25544', {
+                    method: "GET"
+                }).then((response) => response.json()).then((json) => {
+                    let phi = (90-json['latitude'])*(Math.PI/180);
+                    let theta = (json['longitude']+180)*(Math.PI/180);
+                    let x = -((3.5) * Math.sin(phi)*Math.cos(theta));
+                    let z = ((3.5) * Math.sin(phi)*Math.sin(theta));
+                    let y = ((3.5) * Math.cos(phi));
+                    resolve([x, y, z]);
+                });
             });
-            return pos;
         }
 
 
-        convertLatLongToPosition().then((issPos) => {
-            console.log(issPos);
-            console.log(issPos[0]);
-            console.log(issPos[1]);
-            console.log(issPos[2]);
-        })
+        let issPos = await convertLatLongToPosition();
+        console.log(issPos);
+        console.log(issPos[0]);
+        console.log(issPos[1]);
+        console.log(issPos[2]);
 
         function zoomIn() {
             if(camera.zoom <= 19.75) {
