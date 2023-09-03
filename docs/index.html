@@ -128,8 +128,10 @@
 
         let coords = getISSInfo();
         console.log(coords);
-        console.log(coords[0]);
-        console.log(coords[1]);
+        let lat = coords[0];
+        let long = coords[1];
+        console.log(lat);
+        console.log(long);
         let issPos = convertLatLongToPosition(coords[0], coords[1]);
         console.log(issPos);
 
