@@ -90,6 +90,13 @@
         <div class="zoom_out_button" id="zoom_out_button">-</div>
     </div>
     <div class="focus_button" id="focus_button">⌖</div>
+    <div class="ISS_info" id="ISS_info">
+        <h1>ISS Stats</h1>
+        <h5>Latitude: </h5>
+        <h5>Longitude: </h5>
+        <h5>Altitude: </h5>
+        <h5>Velocity </h5>
+    </div>
     <script type="module">
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -173,7 +180,6 @@
             camera.position.y = issPos[1] * 1.42857142857;
             camera.position.z = issPos[2] * 1.42857142857;
             camera.zoom = 20;
-            camera.updateProjectionMatrix();
             camera.updateProjectionMatrix();
         }
 
