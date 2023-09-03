@@ -152,7 +152,7 @@
                     console.log(json['latitude']);
                     console.log(json['longitude']);
                     //let phi = (90-json['latitude'])*(Math.PI/180);
-                    let phi = (180-json['latitude'])*(Math.PI/180);
+                    let phi = (270-json['latitude'])*(Math.PI/180);
                     let theta = (json['longitude']+180)*(Math.PI/180);
                     let x = -((3.5) * Math.sin(phi)*Math.cos(theta));
                     let z = ((3.5) * Math.sin(phi)*Math.sin(theta));
