@@ -96,14 +96,17 @@
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
         import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
+        let ISSInfo;
+
         function getISSInfo() {
             fetch('https://api.wheretheiss.at/v1/satellites/25544', {
                 method: "GET"
             }).then((response) => response.json()).then((json) => {
-                console.log(json);
-                return [json['altitude'], json['latitude'], json['longitude'], json['velocity']];
+                ISSInfo = json;
             });
         }
+
+        console.log(ISSInfo);
 
         function zoomIn() {
             if(camera.zoom <= 19.75) {
@@ -169,9 +172,6 @@
         zoomOutButton.addEventListener("mouseenter", zoomOutMouseEnter, false);
         zoomInButton.addEventListener("mouseleave", zoomInMouseLeave, false);
         zoomOutButton.addEventListener("mouseleave", zoomOutMouseLeave, false);
-
-        let ISSInfo = getISSInfo();
-        console.log(ISSInfo);
 
         const scene = new THREE.Scene();
         const backgroundTexture = new THREE.TextureLoader().load("./assets/stars.jpg");
