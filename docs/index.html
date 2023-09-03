@@ -151,8 +151,7 @@
                     statsVel.innerHTML = "Velocity: " + json['velocity'].toFixed(3).toString() + " km/h";
                     console.log(json['latitude']);
                     console.log(json['longitude']);
-                    //let phi = (90-json['latitude'])*(Math.PI/180);
-                    let phi = (270-json['latitude'])*(Math.PI/180);
+                    let phi = (90-json['latitude'])*(Math.PI/180);
                     let theta = (json['longitude']+180)*(Math.PI/180);
                     let x = -((3.5) * Math.sin(phi)*Math.cos(theta));
                     let z = ((3.5) * Math.sin(phi)*Math.sin(theta));
@@ -270,6 +269,7 @@
             './assets/Earth_1_12756.glb',
             function (object) {
                 object.scene.scale.set(.006, .006, .006);
+                object.scene.rotation.x = Math.PI / 2;
                 scene.add(object.scene);
             }
         )
