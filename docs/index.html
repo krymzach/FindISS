@@ -114,10 +114,10 @@
     <div class="focus_button" id="focus_button">⌖</div>
     <div class="ISS_info" id="ISS_info">
         <h1>ISS Stats</h1>
-        <h5>Latitude: </h5>
-        <h5>Longitude: </h5>
-        <h5>Altitude: </h5>
-        <h5>Velocity: </h5>
+        <h5 id="stats_latitude">Latitude: </h5>
+        <h5 id="stats_longitude">Longitude: </h5>
+        <h5 id="stats_altitude">Altitude: </h5>
+        <h5 id="stats_velocity">Velocity: </h5>
     </div>
     <script type="module">
         import * as THREE from 'three';
@@ -130,6 +130,14 @@
                 fetch('https://api.wheretheiss.at/v1/satellites/25544', {
                     method: "GET"
                 }).then((response) => response.json()).then((json) => {
+                    const statsLat = document.getElementById("stats_latitude");
+                    const statsLong = document.getElementById("stats_longitude");
+                    const statsAlt = document.getElementById("stats_altitude");
+                    const statsVel = document.getElementById("stats_velocity");
+                    statsLat.innerHTML = "Latitude: " + json['latitude'].toString();
+                    statsLong.innerHTML = "Longitude: " + json['longitude'].toString();
+                    statsAlt.innerHTML = "Altitude: " + json['altitude'].toString();
+                    statsVel.innerHTML = "Velocity: " + json['velocity'].toString();
                     console.log(json['latitude']);
                     console.log(json['longitude']);
                     let phi = (90-json['latitude'])*(Math.PI/180);
