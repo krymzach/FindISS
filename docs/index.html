@@ -168,7 +168,7 @@
         zoomInButton.addEventListener("mouseleave", zoomInMouseLeave, false);
         zoomOutButton.addEventListener("mouseleave", zoomOutMouseLeave, false);
 
-        const ISSInfo = getISSInfo();
+        let ISSInfo = getISSInfo();
         console.log(ISSInfo);
 
         const scene = new THREE.Scene();
