@@ -144,7 +144,8 @@
                     statsVel.innerHTML = "Velocity: " + json['velocity'].toString();
                     console.log(json['latitude']);
                     console.log(json['longitude']);
-                    let phi = (90-json['latitude'])*(Math.PI/180);
+                    //let phi = (90-json['latitude'])*(Math.PI/180);
+                    let phi = (json['latitude'])*(Math.PI/180);
                     let theta = (json['longitude']+180)*(Math.PI/180);
                     let x = -((3.5) * Math.sin(phi)*Math.cos(theta));
                     let z = ((3.5) * Math.sin(phi)*Math.sin(theta));
@@ -259,7 +260,7 @@
         const loader = new GLTFLoader();
 
         loader.load(
-            './assets/Earth_1_12756.glb', // Radius = 3
+            './assets/Earth_1_12756.glb',
             function (object) {
                 object.scene.scale.set(.006, .006, .006);
                 scene.add(object.scene);
